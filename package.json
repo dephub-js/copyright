@@ -1,0 +1,69 @@
+{
+  "name": "@dephub/copyright",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Tiny utility to generate dynamic copyright notice strings based on the build year.",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "prepublishOnly": "pnpm check-types && pnpm lint && pnpm build",
+    "release": "pnpm publish",
+    "docs": "lineo md 'src/**/*.ts' --outFile code.md --outDir temp",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint . --fix --max-warnings 0",
+    "fmt": "prettier --write .",
+    "clean": "rm -rf dist",
+    "build": "vite build",
+    "dev": "vite build -w",
+    "start": "node dist/cli.js",
+    "pack": "pnpm pack"
+  },
+  "keywords": [
+    "copyright",
+    "year",
+    "year-range",
+    "license",
+    "notice",
+    "utility",
+    "typescript",
+    "javascript",
+    "esm",
+    "build-year",
+    "date",
+    "dephub"
+  ],
+  "author": {
+    "name": "Estarlin R",
+    "email": "dev@estarlincito.com",
+    "url": "https://estarlincito.com"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dephub-js/copyright#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dephub-js/copyright.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dephub-js/copyright/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@dephub/eslint-ts": "^1.0.2",
+    "@dephub/glob": "^1.0.2",
+    "@dephub/path": "^1.0.2",
+    "@types/node": "^25.3.3",
+    "eslint": "^10.0.2",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "packageManager": "pnpm@10.30.3"
+}
