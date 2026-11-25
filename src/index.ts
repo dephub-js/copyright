@@ -1,1 +1,1 @@
-export * from './core/copyright.js';
+export * from './core/copyright.ts';

@@ -6,17 +6,18 @@
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "scripts": {
-    "prepublishOnly": "pnpm check-types && pnpm lint && pnpm build",
+    "prepublishOnly": "pnpm check && pnpm test && pnpm build",
     "release": "pnpm publish",
     "docs": "lineo md 'src/**/*.ts' --outFile code.md --outDir temp",
-    "check-types": "tsc --noEmit",
+    "check": "tsc --noEmit",
     "lint": "eslint . --fix --max-warnings 0",
     "fmt": "prettier --write .",
     "clean": "rm -rf dist",
+    "prepack": "pnpm check && pnpm build",
+    "pack": "pnpm pack",
     "build": "vite build",
     "dev": "vite build -w",
-    "start": "node dist/cli.js",
-    "pack": "pnpm pack"
+    "start": "node dist/cli.js"
   },
   "keywords": [
     "copyright",
@@ -55,15 +56,21 @@
     "access": "public"
   },
   "devDependencies": {
-    "@dephub/eslint-ts": "^1.0.2",
-    "@dephub/glob": "^1.0.2",
-    "@dephub/path": "^1.0.2",
-    "@types/node": "^25.3.3",
-    "eslint": "^10.0.2",
-    "prettier": "^3.8.1",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1",
-    "vite-plugin-dts": "^4.5.4"
+    "@dephub/eslint-ts": "^1.0.6",
+    "@dephub/glob": "^1.0.3",
+    "@dephub/path": "^2.0.1",
+    "@types/node": "^26.6.10",
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.8",
+    "vite-plugin-dts": "^5.1.2"
+  },
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "engines": {
+    "node": ">=24.0.0"
   },
   "packageManager": "pnpm@10.30.3"
 }
